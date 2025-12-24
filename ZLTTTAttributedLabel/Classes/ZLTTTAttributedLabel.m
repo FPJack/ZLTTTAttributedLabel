@@ -38,7 +38,6 @@
     if (![self.impl respondsToSelector:sel]) {
         return;
     }
-    [self.impl respondsToSelector:@selector(attributedLabel:didSelectLinkWithURL:)];
     [invocation invokeWithTarget:self.impl];
 }
 @end
