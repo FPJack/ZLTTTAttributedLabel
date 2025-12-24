@@ -22,7 +22,6 @@ pod 'ZLTTTAttributedLabel'
             //设置文本默认属性
             NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
             style.lineBreakMode = NSLineBreakByWordWrapping;
-            style.alignment = NSTextAlignmentRight;
             [mutableAttributedString addAttributes:@{
                         NSFontAttributeName: [UIFont systemFontOfSize:18],
                         NSParagraphStyleAttributeName: style,

@@ -26,7 +26,6 @@
         self.label = [[ZLTTTAttributedLabel alloc] initWithText:input attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
             NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
             style.lineBreakMode = NSLineBreakByWordWrapping;
-            style.alignment = NSTextAlignmentRight;
             [mutableAttributedString addAttributes:@{
                         NSFontAttributeName: [UIFont systemFontOfSize:18],
                         NSParagraphStyleAttributeName: style,
@@ -64,7 +63,6 @@
         self.label = [[ZLTTTAttributedLabel alloc] initWithText:input attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
             NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
             style.lineBreakMode = NSLineBreakByWordWrapping;
-            style.alignment = NSTextAlignmentRight;
             [mutableAttributedString addAttributes:@{
                         NSFontAttributeName: [UIFont systemFontOfSize:18],
                         NSParagraphStyleAttributeName: style,
@@ -101,7 +99,6 @@
         self.label = [[ZLTTTAttributedLabel alloc] initWithText:input attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
             NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
             style.lineBreakMode = NSLineBreakByWordWrapping;
-            style.alignment = NSTextAlignmentRight;
             [mutableAttributedString addAttributes:@{
                         NSFontAttributeName: [UIFont systemFontOfSize:18],
                         NSParagraphStyleAttributeName: style,
