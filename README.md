@@ -37,11 +37,12 @@ pod 'ZLTTTAttributedLabel'
             }];
         } tapAction:^(ZLURLItem * _Nonnull item) {
             //点击事件回调
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:item.text
-                                                                           message:item.tagId
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
-            [self presentViewController:alert animated:YES completion:nil];
+            kPopViewColumnBuilder
+                .alertWidth270
+                .title(item.text)
+                .message(item.tagId)
+                .addConfirmViewStyleActionText(@"确定", nil)
+                .showCenterPopView();
         }];
         label.textAlignment = NSTextAlignmentCenter;
         label.numberOfLines = 0;
