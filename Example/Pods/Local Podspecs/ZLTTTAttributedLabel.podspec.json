@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "summary": "A short description of ZLTTTAttributedLabel.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/fanpeng/ZLTTTAttributedLabel",
+  "homepage": "https://github.com/FPJack/ZLTTTAttributedLabel.git",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "fanpeng": "peng.fan@ukelink.com"
   },
   "source": {
-    "git": "https://github.com/fanpeng/ZLTTTAttributedLabel.git",
+    "git": "https://github.com/FPJack/ZLTTTAttributedLabel.git",
     "tag": "0.1.0"
   },
   "platforms": {

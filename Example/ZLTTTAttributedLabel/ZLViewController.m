@@ -10,6 +10,7 @@
 #import <ZLTTTAttributedLabel/ZLTTTAttributedLabel.h>
 #import "TTTAttributedLabel.h"
 #import <Masonry/Masonry.h>
+#import <ZLPopView/ZLPopView.h>
 @interface ZLViewController () <TTTAttributedLabelDelegate>
 @property (nonatomic, strong) ZLTTTAttributedLabel *label;
 @end
@@ -38,11 +39,13 @@
                 NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
             }];
         } tapAction:^(ZLURLItem * _Nonnull item) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:item.text
-                                                                           message:item.tagId
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
-            [self presentViewController:alert animated:YES completion:nil];
+            kPopViewColumnBuilder
+                .alertWidth270
+                .title(item.text)
+                .message(item.tagId)
+                .addConfirmViewStyleActionText(@"确定", nil)
+                .showCenterPopView();
+           
         }];
         self.label.textAlignment = NSTextAlignmentCenter;
         self.label.numberOfLines = 0;
@@ -73,11 +76,12 @@
                 (id)kCTForegroundColorAttributeName : (id)[UIColor redColor].CGColor,
             }];
         } tapAction:^(ZLURLItem * _Nonnull item) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:item.text
-                                                                           message:item.tagId
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
-            [self presentViewController:alert animated:YES completion:nil];
+            kPopViewColumnBuilder
+                .alertWidth270
+                .title(item.text)
+                .message(item.tagId)
+                .addConfirmViewStyleActionText(@"确定", nil)
+                .showCenterPopView();
         }];
         self.label.textAlignment = NSTextAlignmentLeft;
         self.label.numberOfLines = 0;
@@ -114,11 +118,12 @@
 
             }];
         } tapAction:^(ZLURLItem * _Nonnull item) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:item.text
-                                                                           message:item.tagId
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
-            [self presentViewController:alert animated:YES completion:nil];
+            kPopViewColumnBuilder
+                .alertWidth270
+                .title(item.text)
+                .message(item.tagId)
+                .addConfirmViewStyleActionText(@"确定", nil)
+                .showCenterPopView();
         }];
         self.label.textAlignment = NSTextAlignmentRight;
         self.label.numberOfLines = 0;

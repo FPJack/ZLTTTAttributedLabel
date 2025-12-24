@@ -375,12 +375,14 @@
 				"${PODS_ROOT}/Target Support Files/Pods-ZLTTTAttributedLabel_Example/Pods-ZLTTTAttributedLabel_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/ZLPopView/ZLPopView.framework",
 				"${BUILT_PRODUCTS_DIR}/ZLTTTAttributedLabel/ZLTTTAttributedLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZLPopView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZLTTTAttributedLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,6 +5,7 @@ platform :ios, '10.0'
 target 'ZLTTTAttributedLabel_Example' do
   pod 'ZLTTTAttributedLabel', :path => '../'
   pod 'Masonry'
+  pod 'ZLPopView'
 
 
   target 'ZLTTTAttributedLabel_Tests' do
