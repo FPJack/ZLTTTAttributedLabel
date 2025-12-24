@@ -4,10 +4,11 @@ platform :ios, '10.0'
 
 target 'ZLTTTAttributedLabel_Example' do
   pod 'ZLTTTAttributedLabel', :path => '../'
+  pod 'Masonry'
+
 
   target 'ZLTTTAttributedLabel_Tests' do
     inherit! :search_paths
-
     pod 'FBSnapshotTestCase'
   end
 end

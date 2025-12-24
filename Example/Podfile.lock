@@ -1,0 +1,35 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - Masonry (1.1.0)
+  - TTTAttributedLabel (2.0.0)
+  - ZLTTTAttributedLabel (0.1.0):
+    - TTTAttributedLabel
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - Masonry
+  - ZLTTTAttributedLabel (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+    - Masonry
+    - TTTAttributedLabel
+
+EXTERNAL SOURCES:
+  ZLTTTAttributedLabel:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  ZLTTTAttributedLabel: 6689010ecab98f5afd295c141939f1bef75b6eee
+
+PODFILE CHECKSUM: fa0bbf755eca57f16259912a425318421edecb67
+
+COCOAPODS: 1.16.2

@@ -23,6 +23,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		7B2EF91A27E440BE53500921 /* Pods_ZLTTTAttributedLabel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60EA18599C088E95F2696463 /* Pods_ZLTTTAttributedLabel_Tests.framework */; };
+		841917902EE2EBFC00227F28 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8419178E2EE2EBFC00227F28 /* Localizable.strings */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +39,8 @@
 
 /* Begin PBXFileReference section */
 		0DD7B494C7A8F0D46AB945F5 /* Pods-ZLTTTAttributedLabel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLTTTAttributedLabel_Example.debug.xcconfig"; path = "Target Support Files/Pods-ZLTTTAttributedLabel_Example/Pods-ZLTTTAttributedLabel_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		1FDB5290A0FFA08779F915F8 /* ZLTTTAttributedLabel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = ZLTTTAttributedLabel.podspec; path = ../ZLTTTAttributedLabel.podspec; sourceTree = "<group>"; };
-		33EE595DDF3BC9D2363D1541 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1FDB5290A0FFA08779F915F8 /* ZLTTTAttributedLabel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZLTTTAttributedLabel.podspec; path = ../ZLTTTAttributedLabel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		33EE595DDF3BC9D2363D1541 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		361BE1BEA5BCF7B4CC4C1AF4 /* Pods-ZLTTTAttributedLabel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLTTTAttributedLabel_Tests.release.xcconfig"; path = "Target Support Files/Pods-ZLTTTAttributedLabel_Tests/Pods-ZLTTTAttributedLabel_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ZLTTTAttributedLabel_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZLTTTAttributedLabel_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,11 +63,15 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		60EA18599C088E95F2696463 /* Pods_ZLTTTAttributedLabel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZLTTTAttributedLabel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8419178F2EE2EBFC00227F28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		841917912EE2EC0600227F28 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		841917922EE2EC1500227F28 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		841917932EE2EC1500227F28 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B14C5D7EC8F4507870921826 /* Pods-ZLTTTAttributedLabel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLTTTAttributedLabel_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ZLTTTAttributedLabel_Tests/Pods-ZLTTTAttributedLabel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3446ED1DDA0F7B4576C2445 /* Pods_ZLTTTAttributedLabel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZLTTTAttributedLabel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA68B9DAE14EC84A0C454894 /* Pods-ZLTTTAttributedLabel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLTTTAttributedLabel_Example.release.xcconfig"; path = "Target Support Files/Pods-ZLTTTAttributedLabel_Example/Pods-ZLTTTAttributedLabel_Example.release.xcconfig"; sourceTree = "<group>"; };
-		DA7FDFA296737650F71C05BB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		DA7FDFA296737650F71C05BB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +155,7 @@
 			children = (
 				6003F595195388D20070C39A /* ZLTTTAttributedLabel-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
+				8419178E2EE2EBFC00227F28 /* Localizable.strings */,
 				6003F599195388D20070C39A /* main.m */,
 				6003F59B195388D20070C39A /* ZLTTTAttributedLabel-Prefix.pch */,
 			);
@@ -193,7 +199,6 @@
 				B14C5D7EC8F4507870921826 /* Pods-ZLTTTAttributedLabel_Tests.debug.xcconfig */,
 				361BE1BEA5BCF7B4CC4C1AF4 /* Pods-ZLTTTAttributedLabel_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -259,8 +264,10 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 6003F581195388D10070C39A;
 			productRefGroup = 6003F58B195388D20070C39A /* Products */;
@@ -278,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841917902EE2EBFC00227F28 /* Localizable.strings in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
@@ -365,10 +373,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ZLTTTAttributedLabel_Example/Pods-ZLTTTAttributedLabel_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/ZLTTTAttributedLabel/ZLTTTAttributedLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZLTTTAttributedLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,8 +440,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				71719F9E1E33DC2100824A3D /* Base */,
+				841917922EE2EC1500227F28 /* ar */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8419178E2EE2EBFC00227F28 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8419178F2EE2EBFC00227F28 /* en */,
+				841917912EE2EC0600227F28 /* English */,
+				841917932EE2EC1500227F28 /* ar */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
