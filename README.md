@@ -25,7 +25,10 @@ pod 'ZLTTTAttributedLabel'
 
 
 ```ruby
-        ZLTTTAttributedLabel *label = [[ZLTTTAttributedLabel alloc] initWithText:input attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
+
+        NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[@1]<h/>和<h>《隐私政策》[@2]<h/>";
+
+        ZLTTTAttributedLabel *label = [[ZLTTTAttributedLabel alloc] initWithText:text attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
             //设置文本默认属性
             NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
             style.lineBreakMode = NSLineBreakByWordWrapping;
