@@ -19,6 +19,11 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'ZLTTTAttributedLabel'
 ```
+
+<img src="https://github.com/FPJack/ZLTTTAttributedLabel/blob/master/picture1.PNG" width="30%" height="30%">   <img src="https://github.com/FPJack/ZLTTTAttributedLabel/blob/master/picture2.PNG" width="30%" height="30%">   <img src="https://github.com/FPJack/ZLTTTAttributedLabel/blob/master/picture3.PNG" width="30%" height="30%">
+
+
+
 ```ruby
         ZLTTTAttributedLabel *label = [[ZLTTTAttributedLabel alloc] initWithText:input attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
             //设置文本默认属性
