@@ -39,11 +39,10 @@
             }];
         } tapAction:^(ZLURLItem * _Nonnull item) {
             kPopViewColumnBuilder
-                .alertWidth270
                 .title(item.text)
                 .message(item.tagId)
                 .addConfirmViewStyleActionText(@"确定", nil)
-                .showCenterPopView();
+                .showAlert();
            
         }];
         self.label.textAlignment = NSTextAlignmentCenter;
@@ -75,11 +74,10 @@
             }];
         } tapAction:^(ZLURLItem * _Nonnull item) {
             kPopViewColumnBuilder
-                .alertWidth270
                 .title(item.text)
                 .message(item.tagId)
                 .addConfirmViewStyleActionText(@"确定", nil)
-                .showCenterPopView();
+                .showAlert();
         }];
         self.label.textAlignment = NSTextAlignmentLeft;
         self.label.numberOfLines = 0;
@@ -116,11 +114,10 @@
             }];
         } tapAction:^(ZLURLItem * _Nonnull item) {
             kPopViewColumnBuilder
-                .alertWidth270
                 .title(item.text)
                 .message(item.tagId)
                 .addConfirmViewStyleActionText(@"确定", nil)
-                .showCenterPopView();
+                .showAlert();
         }];
         self.label.textAlignment = NSTextAlignmentRight;
         self.label.numberOfLines = 0;

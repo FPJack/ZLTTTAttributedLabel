@@ -41,11 +41,10 @@ NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[@1]
         } tapAction:^(ZLURLItem * _Nonnull item) {
             //点击事件回调
             kPopViewColumnBuilder
-                .alertWidth270
                 .title(item.text)
                 .message(item.tagId)
                 .addConfirmViewStyleActionText(@"确定", nil)
-                .showCenterPopView();
+                .showAlert();
         }];
         label.textAlignment = NSTextAlignmentCenter;
         label.numberOfLines = 0;
