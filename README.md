@@ -1,8 +1,10 @@
 # ZLTTTAttributedLabel
 
-## Installation
-
 ### 基于TTTAttributedLabel的封装，对一行文字高亮部分加标签，自动解析出高亮文字，并加点击事件回调，解决多语言文本替换语序的问题
+
+
+## 安装
+
 
 ```ruby
 pod 'ZLTTTAttributedLabel'
