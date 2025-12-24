@@ -20,7 +20,7 @@ it, simply add the following line to your Podfile:
 pod 'ZLTTTAttributedLabel'
 ```
 
-<img src="https://github.com/FPJack/ZLTTTAttributedLabel/blob/master/picture1.PNG" width="30%" height="30%">   <img src="https://github.com/FPJack/ZLTTTAttributedLabel/blob/master/picture2.PNG" width="30%" height="30%">   <img src="https://github.com/FPJack/ZLTTTAttributedLabel/blob/master/picture3.PNG" width="30%" height="30%">
+<img src="https://github.com/FPJack/ZLTTTAttributedLabel/blob/master/picture1.png" width="30%" height="30%">   <img src="https://github.com/FPJack/ZLTTTAttributedLabel/blob/master/picture2.png" width="30%" height="30%">   <img src="https://github.com/FPJack/ZLTTTAttributedLabel/blob/master/picture3.png" width="30%" height="30%">
 
 
 
