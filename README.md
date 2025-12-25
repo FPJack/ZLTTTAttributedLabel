@@ -9,8 +9,12 @@
 ```ruby
 pod 'ZLTTTAttributedLabel'
 ```
+
+```ruby
 文本内容：
 NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[@1]<h/>和<h>《隐私政策》[@2]<h/>";
+```
+
 
 展示效果：
 
