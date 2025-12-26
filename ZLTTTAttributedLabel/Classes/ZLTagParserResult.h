@@ -9,7 +9,7 @@
 
 #define H_TAG_START @"<h>"
 #define H_TAG_END   @"<h/>"
-#define H_TAG_SEPARATOR_START @"[@"
+#define H_TAG_SEPARATOR_START @"["
 #define H_TAG_SEPARATOR_End @"]"
 /*
  这里有<h>这是高亮内容1[@1]<h/>，还有<h>这是高亮内容2<h/> 标签内da容还有<h>这是高亮内容3<h/>标签内容

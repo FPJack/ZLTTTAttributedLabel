@@ -20,8 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *input = @"登录或注册账号即视为同意<h>《用户协议》[@1]<h/>和<h>《隐私政策》[@2]<h/>";
-   
+    NSString *input = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
+    
+//    input = @"يسجل الدخول أو إنشاء حساب يعني موافقتك على <h>\"اتفاقية المستخدم\" [1]<h/> و<h>\"سياسة الخصوصية\" [2]<h/>";
+//    input = @"يسجل الدخول أو إنشاء حساب يعني موافقتك على <h>\"اتفاقية المستخدم\" [1]<h/> و<h>\"سياسة الخصوصية\" [2]<h/>";
+
     {
         self.label = [[ZLTTTAttributedLabel alloc] initWithText:input attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
             NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
@@ -58,7 +61,7 @@
     }
     
     {
-        input = @"By logging in or registering an account, you agree to the <h>User Agreement[@1]<h/> and <h>Privacy Policy[@2]<h/>.";
+        input = @"By logging in or registering an account, you agree to the <h>User Agreement[1]<h/> and <h>Privacy Policy[2]<h/>.";
         self.label = [[ZLTTTAttributedLabel alloc] initWithText:input attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
             NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
             style.lineBreakMode = NSLineBreakByWordWrapping;
@@ -93,7 +96,9 @@
     
     
     {
-        input = @"أوافق على <h>اتفاقية المستخدم[@1]<h/> و<h>سياسة الخصوصية[@2]<h/>";
+//        input = @"أوافق على <h>اتفاقية المستخدم[@1]<h/> و<h>سياسة الخصوصية[@2]<h/>";
+        input = @"يسجل الدخول أو إنشاء حساب يعني موافقتك على <h>\"اتفاقية المستخدم\" [1]<h/> و<h>\"سياسة الخصوصية\" [2]<h/>";
+
         self.label = [[ZLTTTAttributedLabel alloc] initWithText:input attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
             NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
             style.lineBreakMode = NSLineBreakByWordWrapping;
@@ -106,7 +111,7 @@
         } highlightAttributes:^(NSArray<ZLTagMatch *> * _Nonnull items) {
             [items makeObjectsPerformSelector:@selector(addAttributes:) withObject:@{
                 (id)kCTForegroundColorAttributeName : (id)[UIColor redColor].CGColor,
-                NSFontAttributeName: [UIFont boldSystemFontOfSize:28],
+                NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
                 (id)kCTBackgroundColorAttributeName : (id)(UIColor.orangeColor.CGColor),
                 (id)kCTUnderlineColorAttributeName: (id)[UIColor blueColor].CGColor,
                 (id)kCTUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),
