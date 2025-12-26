@@ -22,7 +22,7 @@
     
     NSString *input = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
     
-//    input = @"يسجل الدخول أو إنشاء حساب يعني موافقتك على <h>\"اتفاقية المستخدم\" [1]<h/> و<h>\"سياسة الخصوصية\" [2]<h/>";
+    input = @"يسجل الدخول أو إنشاء حساب يعني موافقتك على <h>\"اتفاقية المستخدم\" [1]<h/> و<h>\"سياسة الخصوصية\" [2]<h/>";
 //    input = @"يسجل الدخول أو إنشاء حساب يعني موافقتك على <h>\"اتفاقية المستخدم\" [1]<h/> و<h>\"سياسة الخصوصية\" [2]<h/>";
 
     {
@@ -48,7 +48,8 @@
                 .showAlert();
            
         }];
-        self.label.textAlignment = NSTextAlignmentCenter;
+//        self.label.semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;
+//        self.label.textAlignment = NSTextAlignmentRight;
         self.label.numberOfLines = 0;
         
         [self.view addSubview:self.label];

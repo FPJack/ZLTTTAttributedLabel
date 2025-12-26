@@ -11,7 +11,7 @@ pod 'ZLTTTAttributedLabel'
 ```
 文本内容：
 ```ruby
-NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[@1]<h/>和<h>《隐私政策》[@2]<h/>";
+NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
 ```
 
 
@@ -23,7 +23,7 @@ NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[@1]
 
 ```ruby
 
-        NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[@1]<h/>和<h>《隐私政策》[@2]<h/>";
+        NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
 
         ZLTTTAttributedLabel *label = [[ZLTTTAttributedLabel alloc] initWithText:text attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
             //设置文本默认属性
