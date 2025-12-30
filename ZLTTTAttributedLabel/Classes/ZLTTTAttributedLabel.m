@@ -110,6 +110,68 @@
                      tapAction:(void (^ _Nullable)(ZLURLItem *item))tapAction {
     return [self initWithTagParserResult:[ZLTagParserResult matchResultsWithStr:text] attributes:block highlightAttributes:highlightBlock tapAction:tapAction];
 }
+- (instancetype)initWithText:(NSString *)text
+                    attributesBK:(void (^ _Nullable)(NSMutableAttributedString *mutableAttributedString))block
+           highlightAttributesBK:(void(^ _Nullable)(NSArray<ZLTagMatch *>  *items))highlightBlock
+                 tapActionBK:(void (^ _Nullable)(ZLURLItem *item))tapAction {
+    return [self initWithTagParserResult:[ZLTagParserResult matchResultsWithStr:text] attributes:block highlightAttributes:highlightBlock tapAction:tapAction];
+}
+
+- (instancetype)initWithText:(NSString *)text
+               numberOfLines:(NSInteger)numberOfLines
+                  attributes:(NSDictionary *)attributes
+         highlightAttributes:(NSDictionary *)highlightAttributes
+                 tapActionBK:(void (^ _Nullable)(ZLURLItem *item))tapAction {
+    ZLTTTAttributedLabel *label = [self initWithText:text attributesBK:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
+        NSMutableDictionary *attrs = [NSMutableDictionary dictionaryWithDictionary:attributes];
+        NSMutableParagraphStyle *style = [attributes valueForKey:NSParagraphStyleAttributeName];
+        if (!style && numberOfLines == 0) {
+            style = [[NSMutableParagraphStyle alloc] init];
+            style.lineBreakMode = NSLineBreakByWordWrapping;
+            attrs[NSParagraphStyleAttributeName] = style;
+        }
+        UIColor *color = [attributes valueForKey:NSForegroundColorAttributeName];
+        if (color) {
+            [attrs removeObjectForKey:NSForegroundColorAttributeName];
+            attrs[(id)kCTForegroundColorAttributeName] = (id)color;
+        }
+        [mutableAttributedString addAttributes:attrs range:NSMakeRange(0, mutableAttributedString.length)];
+    } highlightAttributesBK:^(NSArray<ZLTagMatch *> * _Nonnull items) {
+        NSMutableDictionary *attrs = [NSMutableDictionary dictionaryWithDictionary:highlightAttributes];
+        NSMutableParagraphStyle *style = [highlightAttributes valueForKey:NSParagraphStyleAttributeName];
+        if (!style && numberOfLines == 0) {
+            style = [[NSMutableParagraphStyle alloc] init];
+            style.lineBreakMode = NSLineBreakByWordWrapping;
+            attrs[NSParagraphStyleAttributeName] = style;
+        }
+        [items makeObjectsPerformSelector:@selector(addAttributes:) withObject:attrs];
+    } tapActionBK:tapAction];
+    label.numberOfLines = numberOfLines;
+    return label;
+}
+- (instancetype)initWithText:(NSString *)text
+                numberOfLines:(NSInteger)numberOfLines
+                  attributes:(NSDictionary *)attributes
+       highlightAttributesBK:(void(^ _Nullable)(NSArray<ZLTagMatch *>  *items))highlightBlock
+                 tapActionBK:(void (^ _Nullable)(ZLURLItem *item))tapAction {
+    ZLTTTAttributedLabel *label = [self initWithText:text attributesBK:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
+        NSMutableDictionary *attrs = [NSMutableDictionary dictionaryWithDictionary:attributes];
+        NSMutableParagraphStyle *style = [attributes valueForKey:NSParagraphStyleAttributeName];
+        if (!style && numberOfLines == 0) {
+            style = [[NSMutableParagraphStyle alloc] init];
+            style.lineBreakMode = NSLineBreakByWordWrapping;
+            attrs[NSParagraphStyleAttributeName] = style;
+        }
+        UIColor *color = [attributes valueForKey:NSForegroundColorAttributeName];
+        if (color) {
+            [attrs removeObjectForKey:NSForegroundColorAttributeName];
+            attrs[(id)kCTForegroundColorAttributeName] = (id)color;
+        }
+        [mutableAttributedString addAttributes:attrs range:NSMakeRange(0, mutableAttributedString.length)];
+    } highlightAttributesBK:highlightBlock tapActionBK:tapAction];
+    label.numberOfLines = numberOfLines;
+    return label;
+}
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
     
 }

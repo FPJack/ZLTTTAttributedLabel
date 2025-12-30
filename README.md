@@ -23,34 +23,50 @@ NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[1]<
 
 ```ruby
 
-        NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
-
-        ZLTTTAttributedLabel *label = [[ZLTTTAttributedLabel alloc] initWithText:text attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
-            //设置文本默认属性
-            NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-            style.lineBreakMode = NSLineBreakByWordWrapping;
-            [mutableAttributedString addAttributes:@{
-                        NSFontAttributeName: [UIFont systemFontOfSize:18],
-                        NSParagraphStyleAttributeName: style,
-                        (id)kCTForegroundColorAttributeName : (id)[UIColor blackColor].CGColor,
-
-            } range:NSMakeRange(0, mutableAttributedString.length)];
-        } highlightAttributes:^(NSArray<ZLTagMatch *> * _Nonnull items) {
-            //设置高亮文本属性
-            [items makeObjectsPerformSelector:@selector(addAttributes:) withObject:@{
-                (id)kCTForegroundColorAttributeName : (id)[UIColor redColor].CGColor,
-                NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
-            }];
-        } tapAction:^(ZLURLItem * _Nonnull item) {
-            //点击事件回调
+        NSString *input = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
+        UILabel *label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:@{
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor blackColor],
+        } highlightAttributes:@{
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor redColor],
+        } tapActionBK:^(ZLURLItem * _Nonnull item) {
             kPopViewColumnBuilder
                 .title(item.text)
                 .message(item.tagId)
                 .addConfirmViewStyleActionText(@"确定", nil)
                 .showAlert();
         }];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.numberOfLines = 0;
+```
+
+如果需要对不同标签设置不同的高亮属性，可以使用下面的方法：
+```ruby
+        input = @"By logging in or registering an account, you agree to the <h>User Agreement[1]<h/> and <h>Privacy Policy[2]<h/>.";
+        NSDictionary *attrs = @{
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor blackColor],
+        };
+        UILabel *label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:attrs highlightAttributesBK:^(NSArray<ZLTagMatch *> * _Nonnull items) {
+            [items enumerateObjectsUsingBlock:^(ZLTagMatch * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj.tagId isEqualToString:@"1"]) {
+                    [obj addAttributes:@{
+                        NSForegroundColorAttributeName : [UIColor redColor],
+                        NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
+                    }];
+                }else if ([obj.tagId isEqualToString:@"2"]) {
+                    [obj addAttributes:@{
+                        NSForegroundColorAttributeName : [UIColor greenColor],
+                        NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
+                    }];
+                }
+            }];
+        } tapActionBK:^(ZLURLItem * _Nonnull item) {
+            kPopViewColumnBuilder
+                .title(item.text)
+                .message(item.tagId)
+                .addConfirmViewStyleActionText(@"确定", nil)
+                .showAlert();
+        }];
 ```
         
 

@@ -19,35 +19,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSString *input = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
-    
-    input = @"يسجل الدخول أو إنشاء حساب يعني موافقتك على <h>\"اتفاقية المستخدم\" [1]<h/> و<h>\"سياسة الخصوصية\" [2]<h/>";
-//    input = @"يسجل الدخول أو إنشاء حساب يعني موافقتك على <h>\"اتفاقية المستخدم\" [1]<h/> و<h>\"سياسة الخصوصية\" [2]<h/>";
-
     {
-        self.label = [[ZLTTTAttributedLabel alloc] initWithText:input attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
-            NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-            style.lineBreakMode = NSLineBreakByWordWrapping;
-            [mutableAttributedString addAttributes:@{
-                        NSFontAttributeName: [UIFont systemFontOfSize:18],
-                        NSParagraphStyleAttributeName: style,
-                        (id)kCTForegroundColorAttributeName : (id)[UIColor blackColor].CGColor,
-
-            } range:NSMakeRange(0, mutableAttributedString.length)];
-        } highlightAttributes:^(NSArray<ZLTagMatch *> * _Nonnull items) {
-            [items makeObjectsPerformSelector:@selector(addAttributes:) withObject:@{
-                (id)kCTForegroundColorAttributeName : (id)[UIColor redColor].CGColor,
-                NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
-            }];
-        } tapAction:^(ZLURLItem * _Nonnull item) {
+        NSString *input = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
+        UILabel *label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:@{
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor blackColor],
+        } highlightAttributes:@{
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor redColor],
+        } tapActionBK:^(ZLURLItem * _Nonnull item) {
             kPopViewColumnBuilder
                 .title(item.text)
                 .message(item.tagId)
                 .addConfirmViewStyleActionText(@"确定", nil)
                 .showAlert();
-           
         }];
+    }
+    
+    NSString *input = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
+    {
+        self.label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:@{
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor blackColor],
+        } highlightAttributes:@{
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor redColor],
+        } tapActionBK:^(ZLURLItem * _Nonnull item) {
+            kPopViewColumnBuilder
+                .title(item.text)
+                .message(item.tagId)
+                .addConfirmViewStyleActionText(@"确定", nil)
+                .showAlert();
+        }];
+        
 //        self.label.semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;
 //        self.label.textAlignment = NSTextAlignmentRight;
         self.label.numberOfLines = 0;
@@ -63,26 +67,32 @@
     
     {
         input = @"By logging in or registering an account, you agree to the <h>User Agreement[1]<h/> and <h>Privacy Policy[2]<h/>.";
-        self.label = [[ZLTTTAttributedLabel alloc] initWithText:input attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
-            NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-            style.lineBreakMode = NSLineBreakByWordWrapping;
-            [mutableAttributedString addAttributes:@{
-                        NSFontAttributeName: [UIFont systemFontOfSize:18],
-                        NSParagraphStyleAttributeName: style,
-                        (id)kCTForegroundColorAttributeName : (id)[UIColor blackColor].CGColor,
-
-            } range:NSMakeRange(0, mutableAttributedString.length)];
-        } highlightAttributes:^(NSArray<ZLTagMatch *> * _Nonnull items) {
-            [items makeObjectsPerformSelector:@selector(addAttributes:) withObject:@{
-                (id)kCTForegroundColorAttributeName : (id)[UIColor redColor].CGColor,
+        NSDictionary *attrs = @{
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor blackColor],
+        };
+        self.label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:attrs highlightAttributesBK:^(NSArray<ZLTagMatch *> * _Nonnull items) {
+            [items enumerateObjectsUsingBlock:^(ZLTagMatch * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj.tagId isEqualToString:@"1"]) {
+                    [obj addAttributes:@{
+                        NSForegroundColorAttributeName : [UIColor redColor],
+                        NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
+                    }];
+                }else if ([obj.tagId isEqualToString:@"2"]) {
+                    [obj addAttributes:@{
+                        NSForegroundColorAttributeName : [UIColor greenColor],
+                        NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
+                    }];
+                }
             }];
-        } tapAction:^(ZLURLItem * _Nonnull item) {
+        } tapActionBK:^(ZLURLItem * _Nonnull item) {
             kPopViewColumnBuilder
                 .title(item.text)
                 .message(item.tagId)
                 .addConfirmViewStyleActionText(@"确定", nil)
                 .showAlert();
         }];
+        
         self.label.textAlignment = NSTextAlignmentLeft;
         self.label.numberOfLines = 0;
         
@@ -97,36 +107,28 @@
     
     
     {
-//        input = @"أوافق على <h>اتفاقية المستخدم[@1]<h/> و<h>سياسة الخصوصية[@2]<h/>";
         input = @"يسجل الدخول أو إنشاء حساب يعني موافقتك على <h>\"اتفاقية المستخدم\" [1]<h/> و<h>\"سياسة الخصوصية\" [2]<h/>";
 
-        self.label = [[ZLTTTAttributedLabel alloc] initWithText:input attributes:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
-            NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-            style.lineBreakMode = NSLineBreakByWordWrapping;
-            [mutableAttributedString addAttributes:@{
-                        NSFontAttributeName: [UIFont systemFontOfSize:18],
-                        NSParagraphStyleAttributeName: style,
-                        (id)kCTForegroundColorAttributeName : (id)[UIColor blackColor].CGColor,
-
-            } range:NSMakeRange(0, mutableAttributedString.length)];
-        } highlightAttributes:^(NSArray<ZLTagMatch *> * _Nonnull items) {
-            [items makeObjectsPerformSelector:@selector(addAttributes:) withObject:@{
-                (id)kCTForegroundColorAttributeName : (id)[UIColor redColor].CGColor,
-                NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
-                (id)kCTBackgroundColorAttributeName : (id)(UIColor.orangeColor.CGColor),
-                (id)kCTUnderlineColorAttributeName: (id)[UIColor blueColor].CGColor,
-                (id)kCTUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),
-
-            }];
-        } tapAction:^(ZLURLItem * _Nonnull item) {
+        
+        self.label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:@{
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor blackColor],
+        } highlightAttributes:@{
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor redColor],
+            (id)kCTBackgroundColorAttributeName : (id)(UIColor.orangeColor.CGColor),
+            (id)kCTUnderlineColorAttributeName: (id)[UIColor blueColor].CGColor,
+            (id)kCTUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),
+        } tapActionBK:^(ZLURLItem * _Nonnull item) {
             kPopViewColumnBuilder
                 .title(item.text)
                 .message(item.tagId)
                 .addConfirmViewStyleActionText(@"确定", nil)
                 .showAlert();
         }];
-        self.label.textAlignment = NSTextAlignmentRight;
-        self.label.numberOfLines = 0;
+        
+        
+        self.label.textAlignment = NSTextAlignmentLeft;
         
         [self.view addSubview:self.label];
         [self.label mas_makeConstraints:^(MASConstraintMaker *make) {

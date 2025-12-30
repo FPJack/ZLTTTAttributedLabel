@@ -6,6 +6,7 @@
 //
 
 #import "ZLTagParserResult.h"
+#import <CoreText/CoreText.h>
 @interface ZLTagMatch()
 @property (nonatomic,assign)NSInteger idx;
 @property (nonatomic,assign)NSRange orgRange;
@@ -26,6 +27,12 @@
     return result;
 }
 - (void)addAttributes:(NSDictionary *)attributes{
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionaryWithDictionary:attributes];
+    UIColor *color = [attributes valueForKey:NSForegroundColorAttributeName];
+    if (color) {
+        [attrs removeObjectForKey:NSForegroundColorAttributeName];
+        attrs[(id)kCTForegroundColorAttributeName] = (id)color;
+    }
     self.attributes = attributes;
 }
 @end
