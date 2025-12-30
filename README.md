@@ -29,8 +29,8 @@ NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[1]<
             NSForegroundColorAttributeName : [UIColor blackColor],
         };
         NSDictionary *highlightAttributes = @{
-                NSFontAttributeName: [UIFont systemFontOfSize:18],
-                NSForegroundColorAttributeName : [UIColor redColor],
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor redColor],
         };
         UILabel *label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:attrs highlightAttributes:highlightAttributes tapActionBK:^(ZLLinkItem * _Nonnull item) {
             kPopViewColumnBuilder
