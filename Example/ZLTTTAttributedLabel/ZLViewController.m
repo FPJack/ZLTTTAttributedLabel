@@ -29,7 +29,7 @@
         } highlightAttributes:@{
             NSFontAttributeName: [UIFont systemFontOfSize:18],
             NSForegroundColorAttributeName : [UIColor redColor],
-        } tapActionBK:^(ZLLinkItem * _Nonnull item) {
+        } tapActionBK:^(ZLTagMatch * _Nonnull item) {
             kPopViewColumnBuilder
                 .title(item.text)
                 .message(item.tagId)
@@ -75,7 +75,7 @@
                     }];
                 }
             }];
-        } tapActionBK:^(ZLLinkItem * _Nonnull item) {
+        } tapActionBK:^(ZLTagMatch * _Nonnull item) {
             kPopViewColumnBuilder
                 .title(item.text)
                 .message(item.tagId)
@@ -109,7 +109,7 @@
             (id)kCTBackgroundColorAttributeName : (id)(UIColor.orangeColor.CGColor),
             (id)kCTUnderlineColorAttributeName: (id)[UIColor blueColor].CGColor,
             (id)kCTUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),
-        } tapActionBK:^(ZLLinkItem * _Nonnull item) {
+        } tapActionBK:^(ZLTagMatch * _Nonnull item) {
             kPopViewColumnBuilder
                 .title(item.text)
                 .message(item.tagId)
