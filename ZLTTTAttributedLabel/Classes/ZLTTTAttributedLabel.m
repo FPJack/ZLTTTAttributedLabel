@@ -8,7 +8,7 @@
 #import "ZLTTTAttributedLabel.h"
 #import "ZLTagParserResult.h"
 
-@implementation  ZLURLItem
+@implementation  ZLLinkItem
 @end
 @interface ZLTTTProxy : NSProxy<TTTAttributedLabelDelegate>
 @property (nonatomic, weak) id<TTTAttributedLabelDelegate> impl;
@@ -43,7 +43,7 @@
 @end
 @interface ZLTTTAttributedLabel ()<TTTAttributedLabelDelegate>
 @property (nonatomic, strong) ZLTTTProxy *proxy;
-@property (nonatomic,copy)void (^tagTapAction)(ZLURLItem *item);
+@property (nonatomic,copy)void (^tagTapAction)(ZLLinkItem *item);
 
 @end
 @implementation ZLTTTAttributedLabel
@@ -62,7 +62,7 @@
         for (NSURLQueryItem *item in items) {
             params[item.name] = item.value ?: @"";
         }
-        ZLURLItem *item = [ZLURLItem new];
+        ZLLinkItem *item = [ZLLinkItem new];
         item.text = params[@"text"];
         item.tagId = params[@"tagId"];
         item.urlString = url.absoluteString;
@@ -81,7 +81,7 @@
 - (instancetype)initWithTagParserResult:(ZLTagParserResult *)parserResult
                              attributes:(void (^ _Nullable)(NSMutableAttributedString *mutableAttributedString))block
                     highlightAttributes:(void(^ _Nullable)(NSArray<ZLTagMatch *>  *items))highlightBlock
-                              tapAction:(void (^ _Nullable)(ZLURLItem *item))tapAction{
+                              tapAction:(void (^ _Nullable)(ZLLinkItem *item))tapAction{
     self = [super initWithFrame:CGRectZero];
     if (self) {
         self.tagTapAction = tapAction;
@@ -107,13 +107,13 @@
 - (instancetype)initWithText:(NSString *)text
                     attributes:(void (^ _Nullable)(NSMutableAttributedString *mutableAttributedString))block
            highlightAttributes:(void(^ _Nullable)(NSArray<ZLTagMatch *>  *items))highlightBlock
-                     tapAction:(void (^ _Nullable)(ZLURLItem *item))tapAction {
+                     tapAction:(void (^ _Nullable)(ZLLinkItem *item))tapAction {
     return [self initWithTagParserResult:[ZLTagParserResult matchResultsWithStr:text] attributes:block highlightAttributes:highlightBlock tapAction:tapAction];
 }
 - (instancetype)initWithText:(NSString *)text
                     attributesBK:(void (^ _Nullable)(NSMutableAttributedString *mutableAttributedString))block
            highlightAttributesBK:(void(^ _Nullable)(NSArray<ZLTagMatch *>  *items))highlightBlock
-                 tapActionBK:(void (^ _Nullable)(ZLURLItem *item))tapAction {
+                 tapActionBK:(void (^ _Nullable)(ZLLinkItem *item))tapAction {
     return [self initWithTagParserResult:[ZLTagParserResult matchResultsWithStr:text] attributes:block highlightAttributes:highlightBlock tapAction:tapAction];
 }
 
@@ -121,7 +121,7 @@
                numberOfLines:(NSInteger)numberOfLines
                   attributes:(NSDictionary *)attributes
          highlightAttributes:(NSDictionary *)highlightAttributes
-                 tapActionBK:(void (^ _Nullable)(ZLURLItem *item))tapAction {
+                 tapActionBK:(void (^ _Nullable)(ZLLinkItem *item))tapAction {
     ZLTTTAttributedLabel *label = [self initWithText:text attributesBK:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
         NSMutableDictionary *attrs = [NSMutableDictionary dictionaryWithDictionary:attributes];
         NSMutableParagraphStyle *style = [attributes valueForKey:NSParagraphStyleAttributeName];
@@ -153,7 +153,7 @@
                 numberOfLines:(NSInteger)numberOfLines
                   attributes:(NSDictionary *)attributes
        highlightAttributesBK:(void(^ _Nullable)(NSArray<ZLTagMatch *>  *items))highlightBlock
-                 tapActionBK:(void (^ _Nullable)(ZLURLItem *item))tapAction {
+                 tapActionBK:(void (^ _Nullable)(ZLLinkItem *item))tapAction {
     ZLTTTAttributedLabel *label = [self initWithText:text attributesBK:^(NSMutableAttributedString * _Nonnull mutableAttributedString) {
         NSMutableDictionary *attrs = [NSMutableDictionary dictionaryWithDictionary:attributes];
         NSMutableParagraphStyle *style = [attributes valueForKey:NSParagraphStyleAttributeName];

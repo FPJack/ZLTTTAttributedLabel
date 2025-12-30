@@ -9,7 +9,7 @@
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
 #import "ZLTagParserResult.h"
 NS_ASSUME_NONNULL_BEGIN
-@interface ZLURLItem : NSObject
+@interface ZLLinkItem : NSObject
 @property (nonatomic,copy)NSString *urlString;
 @property (nonatomic,copy)NSString *tagId;
 @property (nonatomic,copy)NSString *text;
@@ -22,24 +22,24 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTagParserResult:(ZLTagParserResult *)parserResult
                              attributes:(void (^ _Nullable)(NSMutableAttributedString *mutableAttributedString))block
                     highlightAttributes:(void(^ _Nullable)(NSArray<ZLTagMatch *>  *items))highlightBlock
-                              tapAction:(void (^ _Nullable)(ZLURLItem *item))tapAction;
+                              tapAction:(void (^ _Nullable)(ZLLinkItem *item))tapAction;
 
 - (instancetype)initWithText:(NSString *)text
                numberOfLines:(NSInteger)numberOfLines
                   attributes:(NSDictionary *)attributes
          highlightAttributes:(NSDictionary *)highlightAttributes
-                 tapActionBK:(void (^ _Nullable)(ZLURLItem *item))tapAction;
+                 tapActionBK:(void (^ _Nullable)(ZLLinkItem *item))tapAction;
 
 - (instancetype)initWithText:(NSString *)text
                numberOfLines:(NSInteger)numberOfLines
                   attributes:(NSDictionary *)attributes
        highlightAttributesBK:(void(^ _Nullable)(NSArray<ZLTagMatch *>  *items))highlightBlock
-                 tapActionBK:(void (^ _Nullable)(ZLURLItem *item))tapAction;
+                 tapActionBK:(void (^ _Nullable)(ZLLinkItem *item))tapAction;
 
 - (instancetype)initWithText:(NSString *)text
                 attributesBK:(void (^ _Nullable)(NSMutableAttributedString *mutableAttributedString))block
        highlightAttributesBK:(void(^ _Nullable)(NSArray<ZLTagMatch *>  *items))highlightBlock
-                 tapActionBK:(void (^ _Nullable)(ZLURLItem *item))tapAction;
+                 tapActionBK:(void (^ _Nullable)(ZLLinkItem *item))tapAction;
 @end
 
 NS_ASSUME_NONNULL_END
