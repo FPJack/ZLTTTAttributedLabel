@@ -73,10 +73,10 @@
                 .addConfirmViewStyleActionText(@"确定", nil)
                 .showAlert();
         }];
+        // 点击高亮时
         
         self.label.textAlignment = NSTextAlignmentLeft;
         self.label.numberOfLines = 0;
-        
         [self.view addSubview:self.label];
         [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.view);

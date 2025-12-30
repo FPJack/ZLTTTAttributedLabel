@@ -23,7 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)NSTextCheckingResult *result;
 
 @property (nonatomic, strong,readonly) NSDictionary *attributes;
+@property (nonatomic, strong,readonly) NSDictionary *activeAttributes;
+
 - (void)addAttributes:(NSDictionary *)attributes;
+- (void)addActiveAttributes:(NSDictionary *)attributes;
 @end
 
 @interface ZLTagParserResult : NSObject

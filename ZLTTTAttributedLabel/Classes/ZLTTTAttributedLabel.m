@@ -98,7 +98,7 @@
         }
         
         [parserResult.results enumerateObjectsUsingBlock:^(ZLTagMatch * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [weakSelf addLinkWithTextCheckingResult:obj.result attributes:obj.attributes];
+            [weakSelf addLink:[[TTTAttributedLabelLink alloc] initWithAttributes:obj.attributes activeAttributes:obj.activeAttributes inactiveAttributes:nil textCheckingResult:obj.result]];
         }];
         self.delegate = self;
     }

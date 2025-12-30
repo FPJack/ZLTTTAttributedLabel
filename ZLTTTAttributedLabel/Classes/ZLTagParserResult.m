@@ -12,6 +12,8 @@
 @property (nonatomic,assign)NSRange orgRange;
 @property (nonatomic, assign,readonly) NSInteger lengthToSubtract;
 @property (nonatomic, strong,readwrite) NSDictionary *attributes;
+@property (nonatomic, strong,readwrite) NSDictionary *activeAttributes;
+
 @end
 @implementation ZLTagMatch
 - (NSInteger)lengthToSubtract {
@@ -34,6 +36,15 @@
         attrs[(id)kCTForegroundColorAttributeName] = (id)color;
     }
     self.attributes = attributes;
+}
+- (void)addActiveAttributes:(NSDictionary *)attributes {
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionaryWithDictionary:attributes];
+    UIColor *color = [attributes valueForKey:NSForegroundColorAttributeName];
+    if (color) {
+        [attrs removeObjectForKey:NSForegroundColorAttributeName];
+        attrs[(id)kCTForegroundColorAttributeName] = (id)color;
+    }
+    self.activeAttributes = attributes;
 }
 @end
 

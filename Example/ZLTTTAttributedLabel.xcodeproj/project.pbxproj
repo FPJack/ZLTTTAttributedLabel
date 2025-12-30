@@ -254,6 +254,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = fanpeng;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 6ZA44MJL83;
+						ProvisioningStyle = Manual;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -538,12 +542,17 @@
 			baseConfigurationReference = 0DD7B494C7A8F0D46AB945F5 /* Pods-ZLTTTAttributedLabel_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6ZA44MJL83;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZLTTTAttributedLabel/ZLTTTAttributedLabel-Prefix.pch";
 				INFOPLIST_FILE = "ZLTTTAttributedLabel/ZLTTTAttributedLabel-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wws.label;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "glcoalme-dev-all";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -554,12 +563,17 @@
 			baseConfigurationReference = DA68B9DAE14EC84A0C454894 /* Pods-ZLTTTAttributedLabel_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 6ZA44MJL83;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZLTTTAttributedLabel/ZLTTTAttributedLabel-Prefix.pch";
 				INFOPLIST_FILE = "ZLTTTAttributedLabel/ZLTTTAttributedLabel-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wws.label;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "glcoalme-dev-all";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
