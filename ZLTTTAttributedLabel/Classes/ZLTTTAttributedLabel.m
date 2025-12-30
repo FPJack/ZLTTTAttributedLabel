@@ -162,6 +162,7 @@
             style.lineBreakMode = NSLineBreakByWordWrapping;
             attrs[NSParagraphStyleAttributeName] = style;
         }
+        
         UIColor *color = [attributes valueForKey:NSForegroundColorAttributeName];
         if (color) {
             [attrs removeObjectForKey:NSForegroundColorAttributeName];
