@@ -59,9 +59,18 @@
                         NSForegroundColorAttributeName : [UIColor redColor],
                         NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
                     }];
+                    
+                    [obj addActiveAttributes:@{
+                        NSForegroundColorAttributeName : [UIColor orangeColor],
+                        NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
+                    }];
                 }else if ([obj.tagId isEqualToString:@"2"]) {
                     [obj addAttributes:@{
                         NSForegroundColorAttributeName : [UIColor greenColor],
+                        NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
+                    }];
+                    [obj addActiveAttributes:@{
+                        NSForegroundColorAttributeName : [UIColor orangeColor],
                         NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
                     }];
                 }
