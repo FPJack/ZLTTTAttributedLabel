@@ -24,12 +24,13 @@ NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[1]<
 ```ruby
 
         NSString *input = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
-        UILabel *label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:@{
+        NSDictionary *attrs = @{
             NSFontAttributeName: [UIFont systemFontOfSize:18],
             NSForegroundColorAttributeName : [UIColor blackColor],
-        } highlightAttributes:@{
-            NSFontAttributeName: [UIFont systemFontOfSize:18],
-            NSForegroundColorAttributeName : [UIColor redColor],
+        };
+        UILabel *label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:attrs highlightAttributes:@{
+                NSFontAttributeName: [UIFont systemFontOfSize:18],
+                NSForegroundColorAttributeName : [UIColor redColor],
         } tapActionBK:^(ZLURLItem * _Nonnull item) {
             kPopViewColumnBuilder
                 .title(item.text)
