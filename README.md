@@ -43,7 +43,7 @@ NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[1]<
 
 如果需要对不同标签设置不同的高亮属性，可以使用下面的方法：
 ```ruby
-        NSString *input = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
+        input = @"By logging in or registering an account, you agree to the <h>User Agreement[1]<h/> and <h>Privacy Policy[2]<h/>.";
         NSDictionary *attrs = @{
             NSFontAttributeName: [UIFont systemFontOfSize:18],
             NSForegroundColorAttributeName : [UIColor blackColor],
