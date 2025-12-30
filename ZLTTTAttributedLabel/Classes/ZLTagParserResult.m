@@ -50,13 +50,16 @@
         NSRange contentRange = [match rangeAtIndex:1]; // 标签里面文字
         NSString *content = [output substringWithRange:contentRange];
         NSArray<NSString *> *arr = [content componentsSeparatedByString:H_TAG_SEPARATOR_START];
-        ZLTagMatch *res = [ZLTagMatch new];
-        res.text = arr.firstObject;
-        if (arr.count > 1) res.tagId = [arr.lastObject stringByReplacingOccurrencesOfString:H_TAG_SEPARATOR_End withString:@""];
-        res.orgRange = NSMakeRange(contentRange.location,contentRange.length - (res.tagId ? res.tagId.length + H_TAG_SEPARATOR_START.length + H_TAG_SEPARATOR_End.length : 0));
-        res.idx = mArr.count;
-        [mArr addObject:res];
-        [output replaceCharactersInRange:totalRange withString:res.text];
+        if (arr.count <= 2) {// 标签里面只能有一个分隔符或者没有分隔符
+            ZLTagMatch *res = [ZLTagMatch new];
+            res.text = arr.firstObject;
+            if (arr.count > 1) res.tagId = [arr.lastObject stringByReplacingOccurrencesOfString:H_TAG_SEPARATOR_End withString:@""];
+            res.orgRange = NSMakeRange(contentRange.location,contentRange.length - (res.tagId ? res.tagId.length + H_TAG_SEPARATOR_START.length + H_TAG_SEPARATOR_End.length : 0));
+            res.idx = mArr.count;
+            [mArr addObject:res];
+            [output replaceCharactersInRange:totalRange withString:res.text];
+        }
+       
     }
     __block NSInteger lengthToSubtract = 0;
     
