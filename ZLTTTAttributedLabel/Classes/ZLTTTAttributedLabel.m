@@ -8,24 +8,13 @@
 #import "ZLTTTAttributedLabel.h"
 #import "ZLTagParserResult.h"
 
-
-
-@interface ZLTTTAttributedLabel ()<TTTAttributedLabelDelegate>
-@property (nonatomic,copy)void (^tagTapAction)(ZLTagMatch *item);
-
-@end
 @implementation ZLTTTAttributedLabel
-
-
-
-
 - (instancetype)initWithTagParserResult:(ZLTagParserResult *)parserResult
                              attributes:(void (^ _Nullable)(NSMutableAttributedString *mutableAttributedString))block
                     highlightAttributes:(void(^ _Nullable)(NSArray<ZLTagMatch *>  *items))highlightBlock
                               tapAction:(void (^ _Nullable)(ZLTagMatch *item))tapAction{
     self = [super initWithFrame:CGRectZero];
     if (self) {
-        self.tagTapAction = tapAction;
         [self setText:parserResult.relString afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
             if (block) {
                 block(mutableAttributedString);
@@ -43,7 +32,6 @@
             };
             [weakSelf addLink:link];
         }];
-        self.delegate = self;
     }
     return self;
 }
@@ -105,7 +93,6 @@
             style.lineBreakMode = NSLineBreakByWordWrapping;
             attrs[NSParagraphStyleAttributeName] = style;
         }
-        
         UIColor *color = [attributes valueForKey:NSForegroundColorAttributeName];
         if (color) {
             [attrs removeObjectForKey:NSForegroundColorAttributeName];
@@ -115,8 +102,5 @@
     } highlightAttributesBK:highlightBlock tapActionBK:tapAction];
     label.numberOfLines = numberOfLines;
     return label;
-}
-- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
-    
 }
 @end

@@ -70,7 +70,6 @@
             [mArr addObject:res];
             [output replaceCharactersInRange:totalRange withString:res.text];
         }
-       
     }
     __block NSInteger lengthToSubtract = 0;
     
@@ -90,7 +89,6 @@
         NSLog(@"输出高亮的内容:%@ \n id:%@",[output substringWithRange:obj.range],obj.tagId);
 #endif
     }];
-    
     ZLTagParserResult *reg = ZLTagParserResult.new;
     reg.results = reverseArr;
     reg.relString = output;
@@ -98,7 +96,6 @@
 #if DEBUG
     NSLog(@"最终输出内容---%@",output);
 #endif
-
     return reg;
 }
 
