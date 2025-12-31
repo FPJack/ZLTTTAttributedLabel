@@ -62,7 +62,7 @@ NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[1]<
                     }];
                 }
             }];
-        } tapActionBK:^(ZLLinkItem * _Nonnull item) {
+        } tapActionBK:^(ZLTagMatch * _Nonnull item) {
             kPopViewColumnBuilder
                 .title(item.text)
                 .message(item.tagId)
