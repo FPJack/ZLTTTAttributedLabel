@@ -7,7 +7,7 @@ PODS:
   - Masonry (1.1.0)
   - TTTAttributedLabel (2.0.0)
   - ZLPopView (0.1.2)
-  - ZLTTTAttributedLabel (0.1.0):
+  - ZLTTTAttributedLabel (0.1.4):
     - TTTAttributedLabel
 
 DEPENDENCIES:
@@ -32,7 +32,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   ZLPopView: 74bc4ee499f9442ff67b4718262a5be79b039e74
-  ZLTTTAttributedLabel: 2feb2f46609194ab8eef20376c8365242bb8c09c
+  ZLTTTAttributedLabel: ce929e6515b8d8632576abae33c1b7c2a4c81170
 
 PODFILE CHECKSUM: baf38ef941cc5687126cc6bcb04f990f224cb2ac
 

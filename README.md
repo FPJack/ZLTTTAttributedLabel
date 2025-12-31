@@ -1,6 +1,6 @@
 # ZLTTTAttributedLabel
 
-### 基于TTTAttributedLabel的封装，对一行文字高亮部分加标签，自动解析出高亮文字，并加点击事件回调，解决多语言文本翻译替换语序的问题
+### 基于TTTAttributedLabel的分类，对一行文字高亮部分加标签，自动解析出高亮文字去掉标签，并加点击事件回调，解决多语言文本翻译多次替换的问题
 
 
 ## 安装
@@ -32,7 +32,7 @@ NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[1]<
             NSFontAttributeName: [UIFont systemFontOfSize:18],
             NSForegroundColorAttributeName : [UIColor redColor],
         };
-        UILabel *label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:attrs highlightAttributes:highlightAttrs tapActionBK:^(ZLLinkItem * _Nonnull item) {
+        UILabel *label = [[TTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:attrs highlightAttributes:highlightAttrs tapActionBK:^(ZLLinkItem * _Nonnull item) {
             kPopViewColumnBuilder
                 .title(item.text)
                 .message(item.tagId)
@@ -48,7 +48,7 @@ NSString *text = @"登录或注册账号即视为同意<h>《用户协议》[1]<
             NSFontAttributeName: [UIFont systemFontOfSize:18],
             NSForegroundColorAttributeName : [UIColor blackColor],
         };
-        UILabel *label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:attrs highlightAttributesBK:^(NSArray<ZLTagMatch *> * _Nonnull items) {
+        UILabel *label = [[TTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:attrs highlightAttributesBK:^(NSArray<ZLTagMatch *> * _Nonnull items) {
             [items enumerateObjectsUsingBlock:^(ZLTagMatch * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if ([obj.tagId isEqualToString:@"1"]) {
                     [obj addAttributes:@{

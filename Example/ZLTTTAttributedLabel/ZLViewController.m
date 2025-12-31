@@ -7,12 +7,12 @@
 //
 
 #import "ZLViewController.h"
-#import <ZLTTTAttributedLabel/ZLTTTAttributedLabel.h>
+#import <ZLTTTAttributedLabel/TTTAttributedLabel+ZLTagParser.h>
 #import "TTTAttributedLabel.h"
 #import <Masonry/Masonry.h>
 #import <ZLPopView/ZLPopView.h>
 @interface ZLViewController () <TTTAttributedLabelDelegate>
-@property (nonatomic, strong) ZLTTTAttributedLabel *label;
+@property (nonatomic, strong) TTTAttributedLabel *label;
 @end
 
 @implementation ZLViewController
@@ -23,7 +23,7 @@
     
     NSString *input = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
     {
-        self.label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:@{
+        self.label = [[TTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:@{
             NSFontAttributeName: [UIFont systemFontOfSize:18],
             NSForegroundColorAttributeName : [UIColor blackColor],
         } highlightAttributes:@{
@@ -52,14 +52,13 @@
             NSFontAttributeName: [UIFont systemFontOfSize:18],
             NSForegroundColorAttributeName : [UIColor blackColor],
         };
-        self.label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:attrs highlightAttributesBK:^(NSArray<ZLTagMatch *> * _Nonnull items) {
+        self.label = [[TTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:attrs highlightAttributesBK:^(NSArray<ZLTagMatch *> * _Nonnull items) {
             [items enumerateObjectsUsingBlock:^(ZLTagMatch * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if ([obj.tagId isEqualToString:@"1"]) {
                     [obj addAttributes:@{
                         NSForegroundColorAttributeName : [UIColor redColor],
                         NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
                     }];
-                    
                     [obj addActiveAttributes:@{
                         NSForegroundColorAttributeName : [UIColor orangeColor],
                         NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
@@ -92,7 +91,6 @@
             make.leading.mas_equalTo(self.view).offset(20);
             make.trailing.mas_equalTo(self.view).offset(-20);
         }];
-        
     }
     
     
@@ -100,7 +98,7 @@
         input = @"يسجل الدخول أو إنشاء حساب يعني موافقتك على <h>\"اتفاقية المستخدم\" [1]<h/> و<h>\"سياسة الخصوصية\" [2]<h/>";
 
         
-        self.label = [[ZLTTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:@{
+        self.label = [[TTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:@{
             NSFontAttributeName: [UIFont systemFontOfSize:18],
             NSForegroundColorAttributeName : [UIColor blackColor],
         } highlightAttributes:@{
@@ -126,12 +124,6 @@
             make.leading.mas_equalTo(self.view).offset(20);
             make.trailing.mas_equalTo(self.view).offset(-20);
         }];
-        
     }
-
-
-    
 }
-
-
 @end

@@ -1,11 +1,11 @@
 //
-//  ZLTagMatch.h
+//  TTTAttributedLabel+ZLTagParser.h
 //  ZLTTTAttributedLabel
 //
-//  Created by admin on 2025/12/5.
+//  Created by admin on 2025/12/31.
 //
 
-#import <Foundation/Foundation.h>
+#import <TTTAttributedLabel/TTTAttributedLabel.h>
 
 #define H_TAG_START @"<h>"
 #define H_TAG_END   @"<h/>"
@@ -14,6 +14,7 @@
 /*
  这里有<h>这是高亮内容1[1]<h/>，还有<h>这是高亮内容2<h/> 标签内da容还有<h>这是高亮内容3<h/>标签内容
  */
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZLTagMatch : NSObject
@@ -33,6 +34,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString * relString;
 @property (nonatomic,copy)NSString * orgString;
 + (instancetype)matchResultsWithStr:(NSString *)str;
+@end
+
+
+
+@interface TTTAttributedLabel (ZLTagParser)
+- (instancetype)initWithText:(NSString *)text
+               numberOfLines:(NSInteger)numberOfLines
+                  attributes:(NSDictionary *)attributes
+         highlightAttributes:(NSDictionary *)highlightAttributes
+                 tapActionBK:(void (^ _Nullable)(ZLTagMatch *item))tapAction;
+
+- (instancetype)initWithText:(NSString *)text
+               numberOfLines:(NSInteger)numberOfLines
+                  attributes:(NSDictionary *)attributes
+       highlightAttributesBK:(void(^ _Nullable)(NSArray<ZLTagMatch *>  *items))highlightBlock
+                 tapActionBK:(void (^ _Nullable)(ZLTagMatch *item))tapAction;
 @end
 
 NS_ASSUME_NONNULL_END

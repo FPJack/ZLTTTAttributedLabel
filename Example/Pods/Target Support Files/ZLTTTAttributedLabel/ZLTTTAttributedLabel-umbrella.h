@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "ZLTagParserResult.h"
-#import "ZLTTTAttributedLabel.h"
+#import "TTTAttributedLabel+ZLTagParser.h"
 
 FOUNDATION_EXPORT double ZLTTTAttributedLabelVersionNumber;
 FOUNDATION_EXPORT const unsigned char ZLTTTAttributedLabelVersionString[];
