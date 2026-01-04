@@ -21,7 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign)NSRange range;
 @property (nonatomic,copy)NSString *text;
 @property (nonatomic,copy)NSString *tagId;
-@property (nonatomic,strong)NSTextCheckingResult *result;
 @property (nonatomic, strong,readonly) NSDictionary *attributes;
 @property (nonatomic, strong,readonly) NSDictionary *activeAttributes;
 
