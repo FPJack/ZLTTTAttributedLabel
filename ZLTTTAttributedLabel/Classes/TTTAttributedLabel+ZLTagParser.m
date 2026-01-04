@@ -58,7 +58,11 @@
         NSRange totalRange = match.range;        // 整个标签范围
         NSRange contentRange = [match rangeAtIndex:1]; // 标签里面文字
         NSString *content = [output substringWithRange:contentRange];
-        NSString* idPattern = [NSString stringWithFormat:@"(\\%@.*\\%@)", H_TAG_SEPARATOR_START, H_TAG_SEPARATOR_End];
+        NSString *idPattern =
+        [NSString stringWithFormat:@"(\\%@[\\s\\S]*\\%@)$",
+         H_TAG_SEPARATOR_START,
+         H_TAG_SEPARATOR_End];
+//        NSString* idPattern = [NSString stringWithFormat:@"(\\%@.*\\%@)", H_TAG_SEPARATOR_START, H_TAG_SEPARATOR_End];
         NSRegularExpression *regex =
         [NSRegularExpression regularExpressionWithPattern:idPattern
                                                   options:0
@@ -74,12 +78,16 @@
             res.text = [content substringToIndex:result.range.location];
             res.tagId = [content substringWithRange:NSMakeRange(res.text.length + H_TAG_SEPARATOR_START.length, match.length - H_TAG_SEPARATOR_START.length - H_TAG_SEPARATOR_End.length)];
             res.orgRange = NSMakeRange(contentRange.location,contentRange.length - result.range.length);
+            if (content.length == res.text.length + H_TAG_SEPARATOR_START.length + H_TAG_SEPARATOR_End.length + res.tagId.length) {//添加容错判断
+                [output replaceCharactersInRange:totalRange withString:res.text];
+                [mArr addObject:res];
+            }
         }else {
             res.text = content;
             res.orgRange = NSMakeRange(contentRange.location,contentRange.length );
+            [output replaceCharactersInRange:totalRange withString:res.text];
+            [mArr addObject:res];
         }
-        [output replaceCharactersInRange:totalRange withString:res.text];
-        [mArr addObject:res];
     }
     __block NSInteger lengthToSubtract = 0;
     
