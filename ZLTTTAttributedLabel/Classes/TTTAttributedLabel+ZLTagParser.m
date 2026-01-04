@@ -8,7 +8,6 @@
 #import "TTTAttributedLabel+ZLTagParser.h"
 #import <CoreText/CoreText.h>
 @interface ZLTagMatch()
-@property (nonatomic,assign)NSInteger idx;
 @property (nonatomic,assign)NSRange orgRange;
 @property (nonatomic, assign,readonly) NSInteger lengthToSubtract;
 @property (nonatomic, strong,readwrite) NSDictionary *attributes;
@@ -59,16 +58,39 @@
         NSRange totalRange = match.range;        // 整个标签范围
         NSRange contentRange = [match rangeAtIndex:1]; // 标签里面文字
         NSString *content = [output substringWithRange:contentRange];
-        NSArray<NSString *> *arr = [content componentsSeparatedByString:H_TAG_SEPARATOR_START];
-        if (arr.count <= 2) {// 标签里面只能有一个分隔符或者没有分隔符
-            ZLTagMatch *res = [ZLTagMatch new];
-            res.text = arr.firstObject;
-            if (arr.count > 1) res.tagId = [arr.lastObject stringByReplacingOccurrencesOfString:H_TAG_SEPARATOR_End withString:@""];
-            res.orgRange = NSMakeRange(contentRange.location,contentRange.length - (res.tagId ? res.tagId.length + H_TAG_SEPARATOR_START.length + H_TAG_SEPARATOR_End.length : 0));
-            res.idx = mArr.count;
-            [mArr addObject:res];
-            [output replaceCharactersInRange:totalRange withString:res.text];
+        NSString* idPattern = [NSString stringWithFormat:@"(\\%@.*\\%@)", H_TAG_SEPARATOR_START, H_TAG_SEPARATOR_End];
+        NSRegularExpression *regex =
+        [NSRegularExpression regularExpressionWithPattern:idPattern
+                                                  options:0
+                                                    error:nil];
+        NSTextCheckingResult *result =
+        [regex firstMatchInString:content
+                          options:0
+                            range:NSMakeRange(0, content.length)];
+        ZLTagMatch *res = [ZLTagMatch new];
+        if (result.numberOfRanges > 1) {
+            NSString *match =
+            [content substringWithRange:[result rangeAtIndex:1]];
+            res.text = [content substringToIndex:result.range.location];
+            res.tagId = [content substringWithRange:NSMakeRange(res.text.length + H_TAG_SEPARATOR_START.length, match.length - H_TAG_SEPARATOR_START.length - H_TAG_SEPARATOR_End.length)];
+            res.orgRange = NSMakeRange(contentRange.location,contentRange.length - result.range.length);
+        }else {
+            res.text = content;
+            res.orgRange = NSMakeRange(contentRange.location,contentRange.length );
         }
+        [output replaceCharactersInRange:totalRange withString:res.text];
+        [mArr addObject:res];
+
+    
+//        NSArray<NSString *> *arr = [content componentsSeparatedByString:H_TAG_SEPARATOR_START];
+//        if (arr.count <= 2) {// 标签里面只能有一个分隔符或者没有分隔符
+//            ZLTagMatch *res = [ZLTagMatch new];
+//            res.text = arr.firstObject;
+//            if (arr.count > 1) res.tagId = [arr.lastObject stringByReplacingOccurrencesOfString:H_TAG_SEPARATOR_End withString:@""];
+//            res.orgRange = NSMakeRange(contentRange.location,contentRange.length - (res.tagId ? res.tagId.length + H_TAG_SEPARATOR_START.length + H_TAG_SEPARATOR_End.length : 0));
+//            [mArr addObject:res];
+//            [output replaceCharactersInRange:totalRange withString:res.text];
+//        }
     }
     __block NSInteger lengthToSubtract = 0;
     
