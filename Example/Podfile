@@ -3,10 +3,10 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'ZLTTTAttributedLabel_Example' do
-#  pod 'ZLTTTAttributedLabel', :path => '../'
+  pod 'ZLTTTAttributedLabel', :path => '../'
   pod 'Masonry'
   pod 'ZLPopView'
-  pod 'ZLTTTAttributedLabel', '0.1.7'
+#  pod 'ZLTTTAttributedLabel', '0.1.7'
 
 
   target 'ZLTTTAttributedLabel_Tests' do

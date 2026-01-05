@@ -53,8 +53,8 @@
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
     NSMutableArray<ZLTagMatch *> *mArr = [NSMutableArray array];
     NSMutableString *output = [input mutableCopy];
-    NSArray *matches = [regex matchesInString:output options:0 range:NSMakeRange(0, output.length)];
-    for (NSTextCheckingResult *match in [matches reverseObjectEnumerator]) {
+    NSArray<NSTextCheckingResult *> *matches = [regex matchesInString:output options:0 range:NSMakeRange(0, output.length)];
+    [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult * _Nonnull match, NSUInteger idx, BOOL * _Nonnull stop) {
         NSRange totalRange = match.range;        // 整个标签范围
         NSRange contentRange = [match rangeAtIndex:1]; // 标签里面文字
         NSString *content = [output substringWithRange:contentRange];
@@ -62,7 +62,6 @@
         [NSString stringWithFormat:@"(\\%@[\\s\\S]*\\%@)$",
          H_TAG_SEPARATOR_START,
          H_TAG_SEPARATOR_End];
-//        NSString* idPattern = [NSString stringWithFormat:@"(\\%@.*\\%@)", H_TAG_SEPARATOR_START, H_TAG_SEPARATOR_End];
         NSRegularExpression *regex =
         [NSRegularExpression regularExpressionWithPattern:idPattern
                                                   options:0
@@ -72,6 +71,7 @@
                           options:0
                             range:NSMakeRange(0, content.length)];
         ZLTagMatch *res = [ZLTagMatch new];
+        res.index = idx;
         if (result.numberOfRanges > 1) {
             NSString *match =
             [content substringWithRange:[result rangeAtIndex:1]];
@@ -88,9 +88,11 @@
             [output replaceCharactersInRange:totalRange withString:res.text];
             [mArr addObject:res];
         }
-    }
+        #if DEBUG
+            NSLog(@"解析到的内容:%@  id:%@  index:%ld",res.text,res.tagId,res.index);
+        #endif
+    }];
     __block NSInteger lengthToSubtract = 0;
-    
     NSArray *reverseArr = mArr.reverseObjectEnumerator.allObjects;
     [reverseArr enumerateObjectsUsingBlock:^(ZLTagMatch * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSRange orgRange = obj.orgRange;
@@ -101,7 +103,6 @@
         }
         lengthToSubtract += obj.lengthToSubtract;
     }];
-    
     [mArr enumerateObjectsUsingBlock:^(ZLTagMatch * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 #if DEBUG
         NSLog(@"输出高亮的内容:%@ \n id:%@",[output substringWithRange:obj.range],obj.tagId);
@@ -116,11 +117,7 @@
 #endif
     return reg;
 }
-
 @end
-
-
-
 
 @implementation TTTAttributedLabel (ZLTagParser)
 - (instancetype)initWithTagParserResult:(ZLTagParserResult *)parserResult

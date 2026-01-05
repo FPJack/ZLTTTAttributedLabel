@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     
-    NSString *input = @"登录或注册账号即视为同意<h>《用户协议》[1]<h/>和<h>《隐私政策》[2]<h/>";
+    NSString *input = @"登录或注册账号即视为同意<h>《用户协议》<h/>和<h>《隐私政策》<h/>";
     
     
     {

@@ -548,6 +548,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZLTTTAttributedLabel/ZLTTTAttributedLabel-Prefix.pch";
 				INFOPLIST_FILE = "ZLTTTAttributedLabel/ZLTTTAttributedLabel-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wws.label;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -569,6 +570,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZLTTTAttributedLabel/ZLTTTAttributedLabel-Prefix.pch";
 				INFOPLIST_FILE = "ZLTTTAttributedLabel/ZLTTTAttributedLabel-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wws.label;
 				PRODUCT_NAME = "$(TARGET_NAME)";
