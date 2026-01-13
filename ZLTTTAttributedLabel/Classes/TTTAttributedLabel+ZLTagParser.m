@@ -14,9 +14,9 @@
 @property (nonatomic, strong) NSDictionary *activeAttributes;
 @property (nonatomic,assign,readwrite)NSRange range;
 ///  text 标签内的文本内容
-@property (nonatomic,copy,readwrite)NSString *text;
+@property (nonatomic,copy,readwrite,nullable)NSString *text;
 ///  tagId 标签id标识
-@property (nonatomic,copy,readwrite)NSString *tagId;
+@property (nonatomic,copy,readwrite,nullable)NSString *tagId;
 ///  index 标识第几个匹配
 @property (nonatomic,assign,readwrite)NSInteger index;
 @end

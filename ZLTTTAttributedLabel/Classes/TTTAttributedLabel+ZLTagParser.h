@@ -19,9 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///  range 标签在字符串中的位置
 @property (nonatomic,assign,readonly)NSRange range;
 ///  text 标签内的文本内容
-@property (nonatomic,copy,readonly)NSString *text;
+@property (nonatomic,copy,readonly,nullable)NSString *text;
 ///  tagId 标签id标识
-@property (nonatomic,copy,readonly)NSString *tagId;
+@property (nonatomic,copy,readonly,nullable)NSString *tagId;
 ///  index 标识第几个匹配
 @property (nonatomic,assign,readonly)NSInteger index;
 /// 添加属性
