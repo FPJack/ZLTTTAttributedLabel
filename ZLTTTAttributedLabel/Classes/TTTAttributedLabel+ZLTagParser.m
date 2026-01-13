@@ -10,8 +10,15 @@
 @interface ZLTagMatch()
 @property (nonatomic,assign)NSRange orgRange;
 @property (nonatomic, assign,readonly) NSInteger lengthToSubtract;
-@property (nonatomic, strong,readwrite) NSDictionary *attributes;
-@property (nonatomic, strong,readwrite) NSDictionary *activeAttributes;
+@property (nonatomic, strong) NSDictionary *attributes;
+@property (nonatomic, strong) NSDictionary *activeAttributes;
+@property (nonatomic,assign,readwrite)NSRange range;
+///  text 标签内的文本内容
+@property (nonatomic,copy,readwrite)NSString *text;
+///  tagId 标签id标识
+@property (nonatomic,copy,readwrite)NSString *tagId;
+///  index 标识第几个匹配
+@property (nonatomic,assign,readwrite)NSInteger index;
 @end
 @implementation ZLTagMatch
 - (NSInteger)lengthToSubtract {

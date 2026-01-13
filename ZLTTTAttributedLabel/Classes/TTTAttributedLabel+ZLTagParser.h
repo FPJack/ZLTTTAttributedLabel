@@ -17,18 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZLTagMatch : NSObject
 ///  range 标签在字符串中的位置
-@property (nonatomic,assign)NSRange range;
+@property (nonatomic,assign,readonly)NSRange range;
 ///  text 标签内的文本内容
-@property (nonatomic,copy)NSString *text;
+@property (nonatomic,copy,readonly)NSString *text;
 ///  tagId 标签id标识
-@property (nonatomic,copy)NSString *tagId;
+@property (nonatomic,copy,readonly)NSString *tagId;
 ///  index 标识第几个匹配
-@property (nonatomic,assign)NSInteger index;
-///  attributes 普通状态下的属性
-@property (nonatomic, strong,readonly) NSDictionary *attributes;
-///  activeAttributes 高亮状态下的属性
-@property (nonatomic, strong,readonly) NSDictionary *activeAttributes;
-
+@property (nonatomic,assign,readonly)NSInteger index;
 /// 添加属性
 - (void)addAttributes:(NSDictionary *)attributes;
 /// 添加高亮属性
