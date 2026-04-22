@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy,readonly,nullable)NSString *tagId;
 ///  index 标识第几个匹配
 @property (nonatomic,assign,readonly)NSInteger index;
+
 /// 添加属性
 - (void)addAttributes:(NSDictionary *)attributes;
 /// 添加高亮属性
@@ -36,7 +37,23 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)NSString * orgString;
 + (instancetype)matchResultsWithStr:(NSString *)str;
 @end
+///配置富文本属性对象
+#define kZLAttrBuilder [ZLAttrBuilder new]
+@interface ZLAttrBuilder : NSObject
 
+// 链式属性
+@property (nonatomic, copy, readonly) ZLAttrBuilder* (^font)(UIFont *font);
+@property (nonatomic, copy, readonly) ZLAttrBuilder* (^sysFont)(CGFloat font);
+@property (nonatomic, copy, readonly) ZLAttrBuilder* (^sysFontColor)(CGFloat font,id color);
+@property (nonatomic, copy, readonly) ZLAttrBuilder* (^medFont)(CGFloat font);
+@property (nonatomic, copy, readonly) ZLAttrBuilder* (^medFontColor)(CGFloat font,id color);
+@property (nonatomic, copy, readonly) ZLAttrBuilder* (^textColor)(UIColor *color);
+@property (nonatomic, copy, readonly) ZLAttrBuilder* (^bgColor)(UIColor *color);
+@property (nonatomic, copy, readonly) ZLAttrBuilder* (^underline)(NSUnderlineStyle style);
+@property (nonatomic, copy, readonly) ZLAttrBuilder* (^underlineColor)(id color);
+// 生成
+- (NSDictionary *)buildAttrs;
+@end
 
 
 @interface TTTAttributedLabel (ZLTagParser)

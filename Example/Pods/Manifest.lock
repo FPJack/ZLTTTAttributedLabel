@@ -1,26 +1,41 @@
 PODS:
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - Masonry (1.1.0)
+  - ReactiveObjC (3.1.1)
   - TTTAttributedLabel (2.0.0)
+  - YTKNetwork (3.0.6):
+    - AFNetworking/NSURLSession (~> 4.0)
   - ZLPopView (0.1.2)
-  - ZLTTTAttributedLabel (0.2.0):
+  - ZLTTTAttributedLabel (0.5.0):
     - TTTAttributedLabel
 
 DEPENDENCIES:
   - FBSnapshotTestCase
   - Masonry
+  - ReactiveObjC
+  - YTKNetwork
   - ZLPopView
   - ZLTTTAttributedLabel (from `../`)
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
     - FBSnapshotTestCase
     - Masonry
+    - ReactiveObjC
     - TTTAttributedLabel
+    - YTKNetwork
     - ZLPopView
 
 EXTERNAL SOURCES:
@@ -28,12 +43,15 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  YTKNetwork: c16be90b06be003de9e9cd0d3b187cc8eaf35c04
   ZLPopView: 74bc4ee499f9442ff67b4718262a5be79b039e74
-  ZLTTTAttributedLabel: 2a08079d8ddd6be3c476117670733c2bf865e600
+  ZLTTTAttributedLabel: 206c386a74cf868c9a6d26547ce06f11f6583718
 
-PODFILE CHECKSUM: 7d84b402b68db2804c2611f6870dab481e9797ba
+PODFILE CHECKSUM: 211e3fd7d92f5645e60388079341c406346c1ea1
 
 COCOAPODS: 1.16.2

@@ -11,6 +11,7 @@
 #import "TTTAttributedLabel.h"
 #import <Masonry/Masonry.h>
 #import <ZLPopView/ZLPopView.h>
+
 @interface ZLViewController () <TTTAttributedLabelDelegate>
 @property (nonatomic, strong) TTTAttributedLabel *label;
 @end
@@ -19,12 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     
     NSString *input = @"登录或注册账号即视为同意<h>《用户协议》<h/>和<h>《隐私政策》<h/>";
     
     
     {
+        
         self.label = [[TTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:@{
             NSFontAttributeName: [UIFont systemFontOfSize:18],
             NSForegroundColorAttributeName : [UIColor blackColor],
@@ -32,6 +34,32 @@
             NSFontAttributeName: [UIFont systemFontOfSize:18],
             NSForegroundColorAttributeName : [UIColor redColor],
         } tapActionBK:^(ZLTagMatch * _Nonnull item) {
+            kPopViewColumnBuilder
+                .title(item.text)
+                .message(item.tagId)
+                .addConfirmViewStyleActionText(@"确定", nil)
+                .showAlert();
+        }];
+        
+        self.label.numberOfLines = 0;
+        [self.view addSubview:self.label];
+        [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).offset(100);
+            make.leading.mas_equalTo(self.view).offset(20);
+            make.trailing.mas_equalTo(self.view).offset(-20);
+        }];
+    }
+    
+    {
+         NSDictionary *attr = kZLAttrBuilder
+        .sysFontColor(18, UIColor.orangeColor)
+        .bgColor(UIColor.redColor)
+        .underline(NSUnderlineStyleSingle)
+        .buildAttrs;
+        self.label = [[TTTAttributedLabel alloc] initWithText:input numberOfLines:0 attributes:@{
+            NSFontAttributeName: [UIFont systemFontOfSize:18],
+            NSForegroundColorAttributeName : [UIColor blackColor],
+        } highlightAttributes:attr tapActionBK:^(ZLTagMatch * _Nonnull item) {
             kPopViewColumnBuilder
                 .title(item.text)
                 .message(item.tagId)

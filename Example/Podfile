@@ -6,6 +6,10 @@ target 'ZLTTTAttributedLabel_Example' do
   pod 'ZLTTTAttributedLabel', :path => '../'
   pod 'Masonry'
   pod 'ZLPopView'
+  pod 'ReactiveObjC'
+  pod 'YTKNetwork'
+
+
 #  pod 'ZLTTTAttributedLabel', '0.1.7'
 
 

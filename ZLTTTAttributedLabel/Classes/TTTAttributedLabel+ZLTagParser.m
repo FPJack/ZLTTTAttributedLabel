@@ -125,6 +125,76 @@
     return reg;
 }
 @end
+@interface ZLAttrBuilder()
+@property (nonatomic, strong) NSMutableDictionary *attrs;
+
+@end
+@implementation ZLAttrBuilder
+- (instancetype)init {
+    if (self = [super init]) {
+        _attrs = [NSMutableDictionary dictionary];
+    }
+    return self;
+}
+#pragma mark - 链式
+
+- (ZLAttrBuilder *(^)(UIFont *))font {
+    return ^(UIFont *font) {
+        self.attrs[(id)kCTFontAttributeName] = font;
+        return self;
+    };
+}
+- (ZLAttrBuilder * _Nonnull (^)(CGFloat))sysFont {
+    return ^(CGFloat fontSize) {
+        return self.font([UIFont systemFontOfSize:fontSize]);
+    };
+}
+- (ZLAttrBuilder * _Nonnull (^)(CGFloat, id _Nonnull))sysFontColor {
+    return ^(CGFloat fontSize, id color) {
+        return self.sysFont(fontSize).textColor(color);
+    };
+}
+- (ZLAttrBuilder * _Nonnull (^)(CGFloat))medFont {
+    return ^(CGFloat fontSize) {
+        return self.font([UIFont systemFontOfSize:fontSize weight:UIFontWeightMedium]);
+    };
+}
+- (ZLAttrBuilder * _Nonnull (^)(CGFloat, id _Nonnull))medFontColor {
+    return ^(CGFloat fontSize, id color) {
+        return self.font([UIFont systemFontOfSize:fontSize weight:UIFontWeightMedium]).textColor(color);
+    };
+}
+- (ZLAttrBuilder *(^)(UIColor *))textColor {
+    return ^(UIColor *color) {
+        self.attrs[(id)kCTForegroundColorAttributeName] = color;
+        return self;
+    };
+}
+- (ZLAttrBuilder *(^)(UIColor *))bgColor {
+    return ^(UIColor *color) {
+        self.attrs[(id)kCTBackgroundColorAttributeName] =  (id)(color.CGColor);
+        return self;
+    };
+}
+
+- (ZLAttrBuilder *(^)(NSUnderlineStyle))underline {
+    return ^(NSUnderlineStyle style) {
+        self.attrs[(id)kCTUnderlineStyleAttributeName] = @(style);
+        return self;
+    };
+}
+- (ZLAttrBuilder * _Nonnull (^)(id _Nonnull))underlineColor {
+    return ^(UIColor* color) {
+        self.attrs[(id)kCTUnderlineColorAttributeName] = (id)(color.CGColor);
+        return self;
+    };
+}
+
+#pragma mark - build
+- (NSDictionary *)buildAttrs {
+    return [self.attrs copy];
+}
+@end
 
 @implementation TTTAttributedLabel (ZLTagParser)
 - (instancetype)initWithTagParserResult:(ZLTagParserResult *)parserResult
