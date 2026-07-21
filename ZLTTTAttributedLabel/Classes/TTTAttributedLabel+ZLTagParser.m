@@ -56,7 +56,8 @@
 @implementation ZLTagParserResult
 + (instancetype)matchResultsWithStr:(NSString *)input{
     if (!input) return nil;
-    NSString* pattern = [NSString stringWithFormat:@"%@(.*?)%@", H_TAG_START, H_TAG_END];
+    
+    NSString* pattern = [NSString stringWithFormat:@"%@(.*?)%@",[NSRegularExpression escapedPatternForString:H_TAG_START] ,[NSRegularExpression escapedPatternForString:H_TAG_END]];
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
     NSMutableArray<ZLTagMatch *> *mArr = [NSMutableArray array];
     NSMutableString *output = [input mutableCopy];
